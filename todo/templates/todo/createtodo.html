@@ -1,0 +1,52 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-5">
+        <h1>Create Todo</h1>
+    </div>
+</div>
+
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-5">
+
+        {% if error %}
+
+        <div class="alert alert-danger">
+            {{ error }}
+        </div>
+
+        {% endif %}
+        <form action="" method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input required type="text" name="title" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="important" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Important
+                </label>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create Todo</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
